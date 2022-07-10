@@ -10,6 +10,13 @@ export class UserService {
     return await this.prisma.user.findFirst({ where: { email } });
   }
 
+  async findById(id: string): Promise<object> {
+    return await this.prisma.user.findFirst({
+      where: { id },
+      select: { id: true, firstname: true, lastname: true, email: true },
+    });
+  }
+
   async createUser(
     user: Prisma.UserCreateInput,
   ): Promise<{ id: string; firstname: string; lastname: string }> {

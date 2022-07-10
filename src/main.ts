@@ -6,7 +6,7 @@ import * as cookieParser from 'cookie-parser';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  // class-validator container for dep injection
+  // class-validator container for dep injection on validators
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
 
   // edit validator responses
@@ -25,6 +25,7 @@ async function bootstrap() {
       },
     }),
   );
+
   app.use(cookieParser());
   await app.listen(4455);
 }

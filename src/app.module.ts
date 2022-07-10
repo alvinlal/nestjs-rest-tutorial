@@ -8,6 +8,7 @@ import { REDIS } from './redis/redis.constants';
 import { UtilsModule } from './utils/utils.module';
 import * as session from 'express-session';
 import * as RedisStore from 'connect-redis';
+import * as passport from 'passport';
 import { RedisClientType } from 'redis';
 import { UserModule } from './user/user.module';
 
@@ -44,6 +45,8 @@ export class AppModule implements NestModule {
             maxAge: 2160000000,
           },
         }),
+        passport.initialize(),
+        passport.session(),
       )
       .forRoutes('*');
   }

@@ -30,6 +30,7 @@ export default class AuthService {
 
   async validateUser(email: string, password: string): Promise<object> {
     const user = await this.userService.findByEmail(email);
+
     if (!user) {
       return null;
     }
@@ -40,8 +41,7 @@ export default class AuthService {
       return null;
     }
 
-    delete user.password;
-    return user;
+    return { id: user.id, firstname: user.firstname, lastname: user.lastname };
   }
 
   async createConfirmationUrl(id: string) {
