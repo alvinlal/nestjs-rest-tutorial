@@ -5,14 +5,14 @@ import {
   ValidatorConstraintInterface,
   ValidationOptions,
 } from 'class-validator';
-import AuthService from '../auth/auth.service';
+import { UserService } from '../user/user.service';
 
 @ValidatorConstraint({ name: 'IsEmailExists', async: true })
 @Injectable()
 export class IsUserExistsConstraint implements ValidatorConstraintInterface {
-  constructor(protected readonly authService: AuthService) {}
+  constructor(protected readonly userService: UserService) {}
   async validate(email: string): Promise<boolean> {
-    return !(await this.authService.userExists(email));
+    return !(await this.userService.userExists(email));
   }
 }
 

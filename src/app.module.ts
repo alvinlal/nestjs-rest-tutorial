@@ -9,6 +9,7 @@ import { UtilsModule } from './utils/utils.module';
 import * as session from 'express-session';
 import * as RedisStore from 'connect-redis';
 import { RedisClientType } from 'redis';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { RedisClientType } from 'redis';
     PrismaModule,
     PostModule,
     UtilsModule,
+    UserModule,
   ],
 })
 export class AppModule implements NestModule {
