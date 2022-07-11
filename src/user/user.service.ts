@@ -6,28 +6,46 @@ import { PrismaService } from '../prisma/prisma.service';
 export class UserService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async findByEmail(email: string): Promise<User> {
-    return await this.prisma.user.findFirst({ where: { email } });
+  async findByEmail(
+    email: string,
+    select?: Prisma.UserSelect,
+  ): Promise<Partial<User>> {
+    return await this.prisma.user.findFirst({
+      where: { email },
+      ...(select && { select }),
+    });
   }
 
-  async findById(id: string): Promise<object> {
+  async findById(
+    id: string,
+    select?: Prisma.UserSelect,
+  ): Promise<Partial<User>> {
     return await this.prisma.user.findFirst({
       where: { id },
-      select: { id: true, firstname: true, lastname: true, email: true },
+      ...(select && { select }),
     });
   }
 
   async createUser(
     user: Prisma.UserCreateInput,
-  ): Promise<{ id: string; firstname: string; lastname: string }> {
+    select?: Prisma.UserSelect,
+  ): Promise<Partial<User>> {
     return await this.prisma.user.create({
       data: user,
-      select: { id: true, firstname: true, lastname: true },
+      ...(select && { select }),
     });
   }
 
-  async updateUser(id: string, data: Prisma.UserUpdateInput): Promise<User> {
-    return await this.prisma.user.update({ data, where: { id } });
+  async updateUser(
+    id: string,
+    data: Prisma.UserUpdateInput,
+    select?: Prisma.UserSelect,
+  ): Promise<Partial<User>> {
+    return await this.prisma.user.update({
+      data,
+      where: { id },
+      ...(select && { select }),
+    });
   }
 
   async userExists(email: string): Promise<boolean> {

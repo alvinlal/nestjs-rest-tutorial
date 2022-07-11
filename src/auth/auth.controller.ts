@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
+import { Body, Controller, Post, Req, UseGuards } from '@nestjs/common';
 import AuthService from './auth.service';
 import { SignupDto } from './dto';
 import ConfirmUserDto from './dto/ConfirmUser.dto';
@@ -24,8 +24,17 @@ export default class AuthController {
     return req.user;
   }
 
-  @Get('/logout')
-  async logout() {
-    return '';
+  @Post('/logout')
+  async logout(@Req() req: Request) {
+    const logoutPromise = new Promise((resolve, reject) => {
+      req.logout((err) => {
+        if (err) {
+          console.error(err);
+          return reject({ success: false });
+        }
+        return resolve({ success: true });
+      });
+    });
+    return await logoutPromise;
   }
 }

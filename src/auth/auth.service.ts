@@ -44,7 +44,7 @@ export default class AuthService {
     return { id: user.id, firstname: user.firstname, lastname: user.lastname };
   }
 
-  async createConfirmationUrl(id: string) {
+  async createConfirmationUrl(id: string): Promise<string> {
     const token = v4();
     await this.redis.setEx(confirmUserPrefix + token, 3600, id);
     return `${this.configService.get('ORIGIN')}/auth/confirm/${token}`;
