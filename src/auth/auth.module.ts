@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { PassportModule } from '@nestjs/passport';
-import { IsConfirmTokenValidConstraint } from 'src/validators/IsConfirmTokenValid.validator';
+import { IsConfirmTokenValidConstraint } from '../validators/IsConfirmTokenValid.validator';
 import { UserModule } from '../user/user.module';
 import { IsUserExistsConstraint } from '../validators/isUserExists.validator';
 import AuthController from './auth.controller';
