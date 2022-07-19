@@ -17,4 +17,12 @@ export default class PostService {
       success: true,
     };
   }
+
+  async findAllPosts() {
+    return await this.prisma.post.findMany();
+  }
+
+  async findPostById(id: string) {
+    return await this.prisma.post.findUnique({ where: { id } });
+  }
 }

@@ -4,6 +4,10 @@ import { SignupDto } from './dto';
 import ConfirmUserDto from './dto/ConfirmUser.dto';
 import LocalAuthGuard from './guard/LocalAuth.guard';
 import { Request } from 'express';
+import { ApiBody, ApiTags } from '@nestjs/swagger';
+import LoginDto from './dto/Login.dto';
+
+@ApiTags('Auth')
 @Controller('auth')
 export default class AuthController {
   constructor(private authService: AuthService) {}
@@ -20,6 +24,7 @@ export default class AuthController {
 
   @UseGuards(LocalAuthGuard)
   @Post('/login')
+  @ApiBody({ type: LoginDto })
   async login(@Req() req: Request) {
     return req.user;
   }
