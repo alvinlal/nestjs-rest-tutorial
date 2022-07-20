@@ -25,6 +25,9 @@ export default class PostController {
     return this.postService.addPost(body, req.user.id);
   }
 
+  /**
+   * A method that fetches all posts
+   */
   @ApiOkResponse({ description: 'The list of posts', isArray: true })
   @Get()
   findAllPosts() {

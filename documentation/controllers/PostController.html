@@ -224,14 +224,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/post/post.controller.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/post/post.controller.ts:33</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>A method that fetches all posts</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
@@ -268,8 +270,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">src/post/post.controller.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/post/post.controller.ts:41</a></div>
                 </td>
             </tr>
 
@@ -350,6 +352,9 @@ export default class PostController {
     return this.postService.addPost(body, req.user.id);
   }
 
+  /**
+   * A method that fetches all posts
+   */
   @ApiOkResponse({ description: &#x27;The list of posts&#x27;, isArray: true })
   @Get()
   findAllPosts() {

@@ -88,7 +88,13 @@
                             <a href="#mockUtilService" title="src/test-utils/mocks/services/mockUtilService.ts" ><b>mockUtilService</b>&nbsp;&nbsp;&nbsp;(src/.../mockUtilService.ts)</a>
                         </li>
                         <li>
+                            <a href="#postStub" title="src/post/test/stubs/post.stub.ts" ><b>postStub</b>&nbsp;&nbsp;&nbsp;(src/.../post.stub.ts)</a>
+                        </li>
+                        <li>
                             <a href="#REDIS" title="src/redis/redis.constants.ts" ><b>REDIS</b>&nbsp;&nbsp;&nbsp;(src/.../redis.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#userStub" title="src/user/test/stubs/userStub.ts" ><b>userStub</b>&nbsp;&nbsp;&nbsp;(src/.../userStub.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -455,6 +461,35 @@
         </tbody>
     </table>
 </section>
+    <h3>src/post/test/stubs/post.stub.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="postStub"></a>
+                    <span class="name">
+                        <span ><b>postStub</b></span>
+                        <a href="#postStub"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(authorId): Prisma.PostCreateInput &#x3D;&gt; {
+  return {
+    title: faker.lorem.sentence(),
+    post: faker.lorem.sentences(10),
+    author: authorId,
+  };
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>src/redis/redis.constants.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -471,6 +506,37 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>Symbol(&#x27;AUTH:REDIS&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/user/test/stubs/userStub.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userStub"></a>
+                    <span class="name">
+                        <span ><b>userStub</b></span>
+                        <a href="#userStub"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(): Prisma.UserCreateInput &#x3D;&gt; {
+  return {
+    id: faker.datatype.uuid(),
+    email: faker.internet.email(),
+    firstname: faker.name.firstName(),
+    lastname: faker.name.lastName(),
+    password: faker.internet.password(),
+  };
+}</code>
                     </td>
                 </tr>
 
