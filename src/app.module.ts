@@ -12,7 +12,6 @@ import * as passport from 'passport';
 import { RedisClientType } from 'redis';
 import { UserModule } from './user/user.module';
 import { MessagesModule } from './messages/messages.module';
-import { ChatModule } from './chat/chat.module';
 
 @Module({
   imports: [
@@ -26,7 +25,6 @@ import { ChatModule } from './chat/chat.module';
     UtilsModule,
     UserModule,
     MessagesModule,
-    ChatModule,
   ],
 })
 export class AppModule implements NestModule {
